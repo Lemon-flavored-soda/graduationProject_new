@@ -1,0 +1,20 @@
+[
+{
+  "directory": "E:/graduationProject/Client/build",
+  "command": "E:\\PROGRA~2\\mingw64\\bin\\G__~1.EXE -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles/Client.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\Client.dir\\Client_autogen\\mocs_compilation.cpp.obj -c E:\\graduationProject\\Client\\build\\Client_autogen\\mocs_compilation.cpp",
+  "file": "E:/graduationProject/Client/build/Client_autogen/mocs_compilation.cpp",
+  "output": "CMakeFiles/Client.dir/Client_autogen/mocs_compilation.cpp.obj"
+},
+{
+  "directory": "E:/graduationProject/Client/build",
+  "command": "E:\\PROGRA~2\\mingw64\\bin\\G__~1.EXE -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles/Client.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\Client.dir\\main.cpp.obj -c E:\\graduationProject\\Client\\main.cpp",
+  "file": "E:/graduationProject/Client/main.cpp",
+  "output": "CMakeFiles/Client.dir/main.cpp.obj"
+},
+{
+  "directory": "E:/graduationProject/Client/build",
+  "command": "E:\\PROGRA~2\\mingw64\\bin\\G__~1.EXE -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles/Client.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\Client.dir\\login_dialog.cpp.obj -c E:\\graduationProject\\Client\\login_dialog.cpp",
+  "file": "E:/graduationProject/Client/login_dialog.cpp",
+  "output": "CMakeFiles/Client.dir/login_dialog.cpp.obj"
+}
+]

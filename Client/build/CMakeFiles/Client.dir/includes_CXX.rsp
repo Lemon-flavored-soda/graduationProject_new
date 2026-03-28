@@ -1,0 +1,1 @@
+-IE:/graduationProject/Client/build/Client_autogen/include -isystem E:/Qt/Qt6.10/6.5.3/mingw_64/include/QtCore -isystem E:/Qt/Qt6.10/6.5.3/mingw_64/include -isystem "E:/Qt/Qt6.10/6.5.3/mingw_64/mkspecs/win32-g++" -isystem E:/Qt/Qt6.10/6.5.3/mingw_64/include/QtGui -isystem E:/Qt/Qt6.10/6.5.3/mingw_64/include/QtWidgets
