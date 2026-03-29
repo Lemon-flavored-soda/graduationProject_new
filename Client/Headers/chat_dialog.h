@@ -6,6 +6,7 @@
 #define CLIENT_CHAT_DIALOG_H
 
 #include <QDialog>
+#include "global.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -21,7 +22,10 @@ public:
     ~ChatDialog() override;
 
 private:
+    void ShowSearch(bool bsearch = false);
     Ui::ChatDialog *ui;
+    ChatUIMode _mode;
+    ChatUIMode _state;
 };
 
 

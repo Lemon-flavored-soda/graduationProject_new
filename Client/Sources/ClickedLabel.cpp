@@ -11,6 +11,7 @@ ClickedLabel::ClickedLabel(QWidget* parent):QLabel (parent)
 }
 
 void ClickedLabel::enterEvent(QEnterEvent *event) {
+    //设置图标加缩放
     QPixmap pixmap(":/image/隐藏密码1.png");
     this->setPixmap(pixmap.scaled(20, 20, Qt::KeepAspectRatio, Qt::SmoothTransformation));
     setCursor(Qt::PointingHandCursor);

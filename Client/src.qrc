@@ -1,0 +1,8 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+    <!-- prefix="/" 表示资源根目录，访问时用 ":/" 开头 -->
+    <qresource prefix="/">
+        <!-- 这里的文件名必须是相对于 .qrc 文件所在目录的路径 -->
+<!--        <file>style.qss</file>-->
+    </qresource>
+</RCC>

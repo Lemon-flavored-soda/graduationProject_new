@@ -11,6 +11,7 @@ find_package(Qt6 COMPONENTS Core Gui Widgets Sql Network REQUIRED)
 qt_standard_project_setup()
 
 add_executable(Client main.cpp
+        src.qrc
         Sources/login_dialog.cpp
         Headers/login_dialog.h
         Sources/register_dialog.cpp
@@ -35,6 +36,12 @@ add_executable(Client main.cpp
         Sources/chat_dialog.cpp
         Headers/chat_dialog.h
         Forms/chat_dialog.ui
+        Sources/ClickedBtn.cpp
+        Headers/ClickedBtn.h
+        Sources/CustomizeEdit.cpp
+        Headers/CustomizeEdit.h
+        Sources/ChatUserList.cpp
+        Headers/ChatUserList.h
 )
 target_link_libraries(Client
         Qt6::Core
@@ -68,6 +75,9 @@ qt_add_resources(Client imageresources
         FILES image/显示密码.png
         FILES image/隐藏密码.png
         FILES image/隐藏密码1.png
+        FILES image/搜索.png
+        FILES image/关闭.png
+        FILES image/空白.png
 )
 
 target_include_directories(Client PRIVATE
