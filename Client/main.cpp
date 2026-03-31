@@ -6,6 +6,11 @@
 int main(int argc, char *argv[]) {
     QApplication a(argc, argv);
 
+    QFile file(":/stylesheet.qss"); // 对应前缀为 "/" 的情况
+    if (file.open(QFile::ReadOnly)) {
+        QString styleSheet = QString::fromUtf8(file.readAll());
+        a.setStyleSheet(styleSheet);
+    }
     QString  fileName = "config.ini";
     QString app_path = QCoreApplication::applicationDirPath();
     QString config_path =  QDir::toNativeSeparators(app_path + QDir::separator() + fileName);

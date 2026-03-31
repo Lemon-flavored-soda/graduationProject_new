@@ -7,20 +7,20 @@
 #include "chat_dialog.h"
 #include "ui_chat_dialog.h"
 #include <QAction>
+#include <QRandomGenerator>
+#include "chatuserwid.h"
+#include "loadingdlg.h"
 
 
 ChatDialog::ChatDialog(QWidget *parent) :
-        QDialog(parent), ui(new Ui::ChatDialog) {
+        QDialog(parent), ui(new Ui::ChatDialog),_mode(ChatUIMode::ChatMode),
+        _state(ChatUIMode::ChatMode),b_loading(false) {
     ui->setupUi(this);
+
     QPixmap pixmap(":/image/消息_2.png");
     ui->message->setPixmap(pixmap.scaled(30,30,Qt::KeepAspectRatio,Qt::SmoothTransformation));
     pixmap = QPixmap(":/image/联系人.png");
     ui->boy->setPixmap(pixmap.scaled(30,30,Qt::KeepAspectRatio,Qt::SmoothTransformation));
-    pixmap = QPixmap(":/image/表情.png");
-    ui->emo->setPixmap(pixmap.scaled(20,20,Qt::KeepAspectRatio,Qt::SmoothTransformation));
-    pixmap = QPixmap(":/image/文件夹.png");
-    ui->file->setPixmap(pixmap.scaled(20,20,Qt::KeepAspectRatio,Qt::SmoothTransformation));
-
     ui->search_edit->SetMaxLength(15);
     //通过Action触发菜单
     QAction* searchAction = new QAction(ui->search_edit);
@@ -48,12 +48,13 @@ ChatDialog::ChatDialog(QWidget *parent) :
        ui->search_edit->clear();
        clearAction->setIcon(QIcon(":/image/空白.png"));//清除文本后，切换回透明图标
        ui->search_edit->clearFocus();
-
+        //清除按钮被按下则不显示搜索框
+        ShowSearch(false);
     });
 
-
-    //ui->chat_user_wig->setStyleSheet("background-color:rgb(0,0,0);");
-    //ui->chat_user_list->setStyleSheet("background-color:rgb(247,247,248);border:none;");
+    ShowSearch(false);
+    connect(ui->chat_user_list,&ChatUserList::sig_loading_chat_user,this, &ChatDialog::slot_loading_chat_user);
+    addChatUserList();
 
 }
 
@@ -68,5 +69,66 @@ void ChatDialog::ShowSearch(bool bsearch) {
         ui->search_list->show();
 
     }
+    else{
+        ui->chat_user_list->show();
+        ui->con_user_list->hide();
+        ui->search_list->hide();
+    }
 
+}
+std::vector<QString>strs = {
+        "hello world!",
+        "nice to meet u",
+        "New year new life",
+        "You have to love yourself",
+        "My love is written in the wind ever since the whole world is you"
+};
+std::vector<QString>heads = {
+        ":/image/头像1.png",
+        ":/image/头像2.png",
+        ":/image/头像3.png",
+        ":/image/头像4.png",
+};
+std::vector<QString> names = {
+        "llfc",
+        "zack",
+        "golang",
+        "cpp",
+        "java",
+        "nodejs",
+        "python",
+        "rust"
+};
+//测试
+void ChatDialog::addChatUserList() {
+    //创建QListWidgetItem，并设置自定义的widget
+    for(int i = 0; i < 13; i++){
+        //生成0到99之间的随机整数
+        int randomValue = QRandomGenerator::global()->bounded(100);
+        int str_i = randomValue%strs.size();
+        int head_i = randomValue%heads.size();
+        int name_i = randomValue%names.size();
+
+        auto* chat_user_wid = new ChatUserWid();
+        chat_user_wid->SetInfo(names[name_i],heads[head_i],strs[str_i]);
+        QListWidgetItem* item = new QListWidgetItem();
+        item->setSizeHint(chat_user_wid->sizeHint());
+        ui->chat_user_list->addItem(item);
+        ui->chat_user_list->setItemWidget(item, chat_user_wid);
+    }
+}
+
+void ChatDialog::slot_loading_chat_user() {
+    if(b_loading){
+        return;
+    }
+    b_loading = true;
+    LoadingDlg* loadingDialog = new LoadingDlg(this);
+    loadingDialog->setModal(true);
+    loadingDialog->show();
+    qDebug() << "add new data to list ...";
+    addChatUserList();
+    //加载后关闭对话框
+    loadingDialog->deleteLater();
+    b_loading = false;
 }

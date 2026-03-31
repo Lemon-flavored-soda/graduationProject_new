@@ -4,7 +4,10 @@
 #include "../Headers/global.h"
 
 QString gate_url_prefix = "";
-
+std::function<void(QWidget*)> repolish =[](QWidget *w){
+    w->style()->unpolish(w);
+    w->style()->polish(w);
+};
 //对字符进行加密
 std::function<QString(QString)> xorString = [](QString input){
     QString result = input; // 复制原始字符串，以便进行修改

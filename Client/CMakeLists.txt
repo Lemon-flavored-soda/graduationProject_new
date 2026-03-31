@@ -42,6 +42,33 @@ add_executable(Client main.cpp
         Headers/CustomizeEdit.h
         Sources/ChatUserList.cpp
         Headers/ChatUserList.h
+        Sources/chatuserwid.cpp
+        Headers/chatuserwid.h
+        Forms/chatuserwid.ui
+        Sources/ListItemBase.cpp
+        Headers/ListItemBase.h
+        Sources/loadingdlg.cpp
+        Headers/loadingdlg.h
+        Forms/loadingdlg.ui
+        Sources/chatpage.cpp
+        Headers/chatpage.h
+        Forms/chatpage.ui
+        Sources/ClickedLabel2.cpp
+        Headers/ClickedLabel2.h
+        Sources/ClickedBtn2.cpp
+        Headers/ClickedBtn2.h
+        Sources/ChatView.cpp
+        Headers/ChatView.h
+        Sources/ChatItemBase.cpp
+        Headers/ChatItemBase.h
+        Sources/BubbleFrame.cpp
+        Headers/BubbleFrame.h
+        Sources/TextBubble.cpp
+        Headers/TextBubble.h
+        Sources/PictureBubble.cpp
+        Headers/PictureBubble.h
+        Sources/MessageTextEdit.cpp
+        Headers/MessageTextEdit.h
 )
 target_link_libraries(Client
         Qt6::Core
@@ -50,35 +77,7 @@ target_link_libraries(Client
         Qt6::Network
 )
 
-qt_add_resources(Client imageresources
-        PREFIX "/"
-        FILES image/QQ_1.png
-        FILES image/004_加好友.png
-        FILES image/huaji.png
-        FILES image/QQ_2.png
-        FILES image/表情.png
-        FILES image/创建群聊.png
-        FILES image/调皮.png
-        FILES image/发呆.png
-        FILES image/工程师.png
-        FILES image/工人.png
-        FILES image/可爱.png
-        FILES image/苦笑.png
-        FILES image/联系人.png
-        FILES image/聊天记录.png
-        FILES image/文件夹.png
-        FILES image/消息_1.png
-        FILES image/消息_2.png
-        FILES image/智能机器人.png
-        FILES image/组长.png
-        FILES image/显示密码1.png
-        FILES image/显示密码.png
-        FILES image/隐藏密码.png
-        FILES image/隐藏密码1.png
-        FILES image/搜索.png
-        FILES image/关闭.png
-        FILES image/空白.png
-)
+
 
 target_include_directories(Client PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/Sources

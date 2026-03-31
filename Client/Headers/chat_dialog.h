@@ -18,14 +18,17 @@ Q_OBJECT
 
 public:
     explicit ChatDialog(QWidget *parent = nullptr);
-
     ~ChatDialog() override;
+    void addChatUserList();
 
 private:
     void ShowSearch(bool bsearch = false);
     Ui::ChatDialog *ui;
     ChatUIMode _mode;
     ChatUIMode _state;
+    bool b_loading;
+public slots:
+    void slot_loading_chat_user();
 };
 
 

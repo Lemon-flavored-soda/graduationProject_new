@@ -23,7 +23,7 @@
    <iconset>
     <normaloff>../image/QQ_2.png</normaloff>../image/QQ_2.png</iconset>
   </property>
-  <layout class="QHBoxLayout" name="horizontalLayout">
+  <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,1,3">
    <property name="spacing">
     <number>0</number>
    </property>
@@ -153,7 +153,11 @@
        </widget>
       </item>
       <item>
-       <widget class="ChatUserList" name="chat_user_list"/>
+       <widget class="ChatUserList" name="chat_user_list">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+       </widget>
       </item>
       <item>
        <widget class="QListWidget" name="con_user_list"/>
@@ -165,144 +169,9 @@
     </widget>
    </item>
    <item>
-    <widget class="QWidget" name="chat_data_wid" native="true">
-     <property name="minimumSize">
-      <size>
-       <width>650</width>
-       <height>0</height>
-      </size>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout_4" stretch="0,3,0,1,0">
-      <property name="spacing">
-       <number>0</number>
-      </property>
-      <property name="leftMargin">
-       <number>0</number>
-      </property>
-      <property name="topMargin">
-       <number>0</number>
-      </property>
-      <property name="rightMargin">
-       <number>0</number>
-      </property>
-      <property name="bottomMargin">
-       <number>0</number>
-      </property>
-      <item>
-       <widget class="QWidget" name="title_wid" native="true">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>50</height>
-         </size>
-        </property>
-        <widget class="QLabel" name="label">
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>10</y>
-           <width>101</width>
-           <height>31</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>柠檬味汽水</string>
-         </property>
-        </widget>
-       </widget>
-      </item>
-      <item>
-       <widget class="QWidget" name="chat_view" native="true">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>0</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QWidget" name="tool_bar" native="true">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>50</height>
-         </size>
-        </property>
-        <widget class="QLabel" name="emo">
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>20</y>
-           <width>30</width>
-           <height>30</height>
-          </rect>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-        </widget>
-        <widget class="QLabel" name="file">
-         <property name="geometry">
-          <rect>
-           <x>40</x>
-           <y>20</y>
-           <width>30</width>
-           <height>30</height>
-          </rect>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>20</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-        </widget>
-       </widget>
-      </item>
-      <item>
-       <widget class="QTextEdit" name="textEdit">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>100</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QWidget" name="bottom_bar" native="true">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>50</height>
-         </size>
-        </property>
-        <widget class="QPushButton" name="send_btn">
-         <property name="geometry">
-          <rect>
-           <x>550</x>
-           <y>0</y>
-           <width>75</width>
-           <height>30</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>发送</string>
-         </property>
-        </widget>
-       </widget>
-      </item>
-     </layout>
+    <widget class="QStackedWidget" name="stackedWidget">
+     <widget class="ChatPage" name="chat_page"/>
+     <widget class="QWidget" name="frend_apply_page"/>
     </widget>
    </item>
   </layout>
@@ -322,6 +191,12 @@
    <class>ChatUserList</class>
    <extends>QListWidget</extends>
    <header location="global">ChatUserList.h</header>
+  </customwidget>
+  <customwidget>
+   <class>ChatPage</class>
+   <extends>QWidget</extends>
+   <header location="global">chatpage.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>

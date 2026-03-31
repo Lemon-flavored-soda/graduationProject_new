@@ -3,6 +3,37 @@
     <!-- prefix="/" 表示资源根目录，访问时用 ":/" 开头 -->
     <qresource prefix="/">
         <!-- 这里的文件名必须是相对于 .qrc 文件所在目录的路径 -->
-<!--        <file>style.qss</file>-->
+        <file>image/QQ_1.png</file>
+        <file>image/004_加好友.png</file>
+        <file>image/huaji.png</file>
+        <file>image/QQ_2.png</file>
+        <file>image/表情.png</file>
+        <file>image/创建群聊.png</file>
+        <file>image/调皮.png</file>
+        <file>image/发呆.png</file>
+        <file>image/工程师.png</file>
+        <file>image/工人.png</file>
+        <file>image/可爱.png</file>
+        <file>image/苦笑.png</file>
+        <file>image/联系人.png</file>
+        <file>image/聊天记录.png</file>
+        <file>image/文件夹.png</file>
+        <file>image/消息_1.png</file>
+        <file>image/消息_2.png</file>
+        <file>image/智能机器人.png</file>
+        <file>image/组长.png</file>
+        <file>image/显示密码1.png</file>
+        <file>image/显示密码.png</file>
+        <file>image/隐藏密码.png</file>
+        <file>image/隐藏密码1.png</file>
+        <file>image/搜索.png</file>
+        <file>image/关闭.png</file>
+        <file>image/空白.png</file>
+        <file>image/头像1.png</file>
+        <file>image/头像2.png</file>
+        <file>image/头像3.png</file>
+        <file>image/头像4.png</file>
+        <file>image/loading.gif</file>
+        <file>stylesheet.qss</file>
     </qresource>
 </RCC>
