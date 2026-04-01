@@ -9,15 +9,15 @@
 #include <QLabel>
 #include "global.h"
 
-class BubbleFram{
-
-};
+class BubbleFrame;
 
 class ChatItemBase:public QWidget {
     Q_OBJECT
 public:
     explicit ChatItemBase(ChatRole role, QWidget *parent = nullptr);
+    //设置名字
     void setUserName(const QString &name);
+    //设置图标
     void setUserIcon(const QPixmap &icon);
     void setWidget(QWidget *w);
 

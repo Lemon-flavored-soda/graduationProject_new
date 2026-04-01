@@ -26,6 +26,7 @@ private:
     QVBoxLayout *m_pVl;
     //滚动区域
     QScrollArea *m_pScrollArea;
+    //控制加载的时机
     bool isAppended;
     void initStyleSheet();
 };

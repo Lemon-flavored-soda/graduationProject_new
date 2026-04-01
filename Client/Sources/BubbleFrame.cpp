@@ -11,8 +11,10 @@ BubbleFrame::BubbleFrame(ChatRole role, QWidget *parent)
         ,m_role(role)
         ,m_margin(3)
 {
+    //新建水平布局
     m_pHLayout = new QHBoxLayout();
     if(m_role == ChatRole::Self)
+        //气泡与水平布局之间的间距
         m_pHLayout->setContentsMargins(m_margin, m_margin, WIDTH_SANJIAO + m_margin, m_margin);
     else
         m_pHLayout->setContentsMargins(WIDTH_SANJIAO + m_margin, m_margin, m_margin, m_margin);
@@ -20,11 +22,6 @@ BubbleFrame::BubbleFrame(ChatRole role, QWidget *parent)
     this->setLayout(m_pHLayout);
 }
 
-void BubbleFrame::setMargin(int margin)
-{
-    Q_UNUSED(margin);
-    //m_margin = margin;
-}
 
 void BubbleFrame::setWidget(QWidget *w)
 {
@@ -35,10 +32,11 @@ void BubbleFrame::setWidget(QWidget *w)
     }
 }
 
+//画气泡框
 void BubbleFrame::paintEvent(QPaintEvent *e)
 {
     QPainter painter(this);
-    //无标签
+    //无轨迹气泡
     painter.setPen(Qt::NoPen);
 
     if(m_role == ChatRole::Other)
@@ -58,12 +56,13 @@ void BubbleFrame::paintEvent(QPaintEvent *e)
     }
     else
     {
-        QColor bk_color(158,234,106);
+//        QColor bk_color(158,234,106);
+        QColor bk_color("#28C1FD");
         painter.setBrush(QBrush(bk_color));
         //画气泡
         QRect bk_rect = QRect(0, 0, this->width()-WIDTH_SANJIAO, this->height());
         painter.drawRoundedRect(bk_rect,5,5);
-        //画三角
+        //画小三角
         QPointF points[3] = {
                 QPointF(bk_rect.x()+bk_rect.width(), 12),
                 QPointF(bk_rect.x()+bk_rect.width(), 12+WIDTH_SANJIAO +2),

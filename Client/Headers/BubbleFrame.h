@@ -14,10 +14,9 @@ class BubbleFrame : public QFrame
 Q_OBJECT
 public:
     BubbleFrame(ChatRole role, QWidget *parent = nullptr);
-    void setMargin(int margin);
-    //inline int margin(){return margin;}
     void setWidget(QWidget *w);
 protected:
+    //绘制气泡
     void paintEvent(QPaintEvent *e);
 private:
     QHBoxLayout *m_pHLayout;

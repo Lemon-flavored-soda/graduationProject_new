@@ -67,8 +67,18 @@ add_executable(Client main.cpp
         Headers/TextBubble.h
         Sources/PictureBubble.cpp
         Headers/PictureBubble.h
+        Headers/StateWidget.h
+        Sources/StateWidget.cpp
         Sources/MessageTextEdit.cpp
         Headers/MessageTextEdit.h
+        Sources/SearchList.cpp
+        Headers/SearchList.h
+        Sources/adduseritem.cpp
+        Headers/adduseritem.h
+        Forms/adduseritem.ui
+        Sources/findsuccessdlg.cpp
+        Headers/findsuccessdlg.h
+        Forms/findsuccessdlg.ui
 )
 target_link_libraries(Client
         Qt6::Core

@@ -29,7 +29,7 @@ ChatUserWid{
 
 #user_name_lb{
     color:rgb(0,0,0);
-    font-size:14px;
+    font-size:10px;
     font-weight:normal;
     font-family:"Microsoft YaHei";
 }
@@ -75,7 +75,7 @@ LoadingDlg{
     background: #ffffff;
     border: none; /* 隐藏边框 */
     font-family: "Microsoft YaHei"; /* 设置字体 */
-    font-size: 18px; /* 设置字体大小 */
+    font-size: 14px; /* 设置字体大小 */
     padding: 5px; /* 设置内边距 */
 }
 
@@ -163,4 +163,144 @@ LoadingDlg{
 
 #chat_area{
     border:none;
+}
+
+#chat_user_name{
+    color:rgb(153,153,153);
+    font-size:10px;
+    font-family:"Microsoft YaHei";
+}
+
+#side_chat_lb[state='normal']{
+   border-image: url(:/image/消息_1.png);
+}
+
+#side_chat_lb[state='hover']{
+    background: #DCDCDC;
+    border-image: url(:/image/消息_1.png);
+}
+
+#side_chat_lb[state='pressed']{
+    background: #DCDCDC;
+    border-image: url(:/image/消息_3.png);
+}
+
+#side_chat_lb[state='selected_normal']{
+    border-image: url(:/image/消息_3.png);
+}
+
+#side_chat_lb[state='selected_hover']{
+    background: #DCDCDC;
+    border-image: url(:/image/消息_3.png);
+}
+
+#side_chat_lb[state='selected_pressed']{
+    background: #DCDCDC;
+    border-image: url(:/image/消息_3.png);
+}
+
+#side_contact_lb[state='normal']{
+    border-image: url(:/image/联系人_1.png);
+}
+
+#side_contact_lb[state='hover']{
+    background: #DCDCDC;
+    border-image: url(:/image/联系人_1.png);
+}
+
+#side_contact_lb[state='pressed']{
+    background: #DCDCDC;
+    border-image: url(:/image/联系人_2.png);
+}
+
+#side_contact_lb[state='selected_normal']{
+    border-image: url(:/image/联系人_2.png);
+}
+
+#side_contact_lb[state='selected_hover']{
+    background: #DCDCDC;
+    border-image: url(:/image/联系人_2.png);
+}
+
+#side_contact_lb[state='selected_pressed']{
+    background: #DCDCDC;
+    border-image: url(:/image/联系人_2.png);
+}
+
+#search_edit {
+    border: 2px solid #f1f1f1;
+}
+
+/* 搜索框列表*/
+#search_list {
+    background-color: rgb(247,247,248);
+    border: none;
+}
+
+#search_list::item:selected {
+    background-color: #d3d7d4;
+    border: none;
+    outline: none;
+}
+
+#search_list::item:hover {
+    background-color: rgb(206,207,208);
+    border: none;
+    outline: none;
+}
+
+#search_list::focus {
+    border: none;
+    outline: none;
+}
+
+#invalid_item {
+    background-color: #eaeaea;
+    border: none;
+}
+
+#add_tip {
+    border-image: url(:/image/搜索_1.png);
+}
+
+#right_tip{
+ border-image: url(:/image/right_tip.png);
+}
+
+#message_tip{
+  text-align: center;
+  font-family: "Microsoft YaHei";
+  font-size: 10pt;
+}
+#FindSuccessDlg{
+   background-color: #ffffff;
+}
+
+#name_lb{
+    font-size: 14px;
+    font-family: "Microsoft YaHei";
+}
+
+#add_friend_btn[state='normal']{
+    background: #07c160;
+    color: #ffffff;
+    font-size: 14px; /* 设置字体大小 */
+    font-family: "Microsoft YaHei"; /* 设置字体 */
+    border-radius: 20px; /* 设置圆角 */
+}
+
+#add_friend_btn[state='hover']{
+    background: #3bbb4b;
+    color: #ffffff;
+    font-size: 14px; /* 设置字体大小 */
+    font-family: "Microsoft YaHei"; /* 设置字体 */
+    border-radius: 20px; /* 设置圆角 */
+}
+
+#add_friend_btn[state='press']{
+   background: #07c160;
+   color: #ffffff;
+   font-size: 14px; /* 设置字体大小 */
+   font-family: "Microsoft YaHei"; /* 设置字体 */
+   border-radius: 20px; /* 设置圆角 */
 }

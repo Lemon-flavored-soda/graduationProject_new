@@ -9,7 +9,7 @@
 #include <QTextEdit>
 #include "BubbleFrame.h"
 #include <QHBoxLayout>
-
+//文本气泡
 class TextBubble : public BubbleFrame
 {
 Q_OBJECT

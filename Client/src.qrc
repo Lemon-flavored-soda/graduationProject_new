@@ -16,10 +16,13 @@
         <file>image/可爱.png</file>
         <file>image/苦笑.png</file>
         <file>image/联系人.png</file>
+        <file>image/联系人_1.png</file>
+        <file>image/联系人_2.png</file>
         <file>image/聊天记录.png</file>
         <file>image/文件夹.png</file>
         <file>image/消息_1.png</file>
         <file>image/消息_2.png</file>
+        <file>image/消息_3.png</file>
         <file>image/智能机器人.png</file>
         <file>image/组长.png</file>
         <file>image/显示密码1.png</file>
@@ -27,13 +30,16 @@
         <file>image/隐藏密码.png</file>
         <file>image/隐藏密码1.png</file>
         <file>image/搜索.png</file>
+        <file>image/搜索_1.png</file>
         <file>image/关闭.png</file>
         <file>image/空白.png</file>
         <file>image/头像1.png</file>
         <file>image/头像2.png</file>
         <file>image/头像3.png</file>
         <file>image/头像4.png</file>
+        <file>image/right_tip.png</file>
         <file>image/loading.gif</file>
+        <file>image/red_point.png</file>
         <file>stylesheet.qss</file>
     </qresource>
 </RCC>

@@ -10,25 +10,32 @@ ChatItemBase::ChatItemBase(ChatRole role, QWidget *parent)
         : QWidget(parent)
         , m_role(role)
 {
+    //名字
     m_pNameLabel    = new QLabel();
     m_pNameLabel->setObjectName("chat_user_name");
     QFont font("Microsoft YaHei");
     font.setPointSize(9);
+    //设置字体
     m_pNameLabel->setFont(font);
+    //设置高度
     m_pNameLabel->setFixedHeight(20);
     m_pIconLabel    = new QLabel();
     m_pIconLabel->setScaledContents(true);
-    m_pIconLabel->setFixedSize(42, 42);
+    //头像所占区域大小
+    m_pIconLabel->setFixedSize(30, 30);
     m_pBubble       = new QWidget();
+    //设置网格布局
     QGridLayout *pGLayout = new QGridLayout();
-    pGLayout->setVerticalSpacing(3);
+    pGLayout->setVerticalSpacing(0);
     pGLayout->setHorizontalSpacing(3);
     pGLayout->setContentsMargins(3,3,3,3);
-    QSpacerItem*pSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+    //创建弹簧
+    QSpacerItem* pSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
     if(m_role == ChatRole::Self)
     {
         m_pNameLabel->setContentsMargins(0,0,8,0);
         m_pNameLabel->setAlignment(Qt::AlignRight);
+        //布局添加控件
         pGLayout->addWidget(m_pNameLabel, 0,1, 1,1);
         pGLayout->addWidget(m_pIconLabel, 0, 2, 2,1, Qt::AlignTop);
         pGLayout->addItem(pSpacer, 1, 0, 1, 1);

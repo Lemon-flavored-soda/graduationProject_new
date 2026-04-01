@@ -15,12 +15,16 @@
 TextBubble::TextBubble(ChatRole role, const QString &text, QWidget *parent)
         :BubbleFrame(role, parent)
 {
+    //新建聊天文本框
     m_pTextEdit = new QTextEdit();
+    //只读
     m_pTextEdit->setReadOnly(true);
+    //隐藏垂直和水平滚动条
     m_pTextEdit->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_pTextEdit->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_pTextEdit->installEventFilter(this);
-    QFont font("Microsoft YaHei");
+//    QFont font("Microsoft YaHei");
+    QFont font("楷体");
     font.setPointSize(12);
     m_pTextEdit->setFont(font);
     setPlainText(text);
@@ -32,6 +36,7 @@ bool TextBubble::eventFilter(QObject *o, QEvent *e)
 {
     if(m_pTextEdit == o && e->type() == QEvent::Paint)
     {
+        //调整文本高度
         adjustTextHeight(); //PaintEvent中设置
     }
     return BubbleFrame::eventFilter(o, e);
@@ -77,5 +82,6 @@ void TextBubble::adjustTextHeight()
 
 void TextBubble::initStyleSheet()
 {
+    //透明无边框
     m_pTextEdit->setStyleSheet("QTextEdit{background:transparent;border:none}");
 }
