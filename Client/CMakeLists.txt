@@ -79,6 +79,30 @@ add_executable(Client main.cpp
         Sources/findsuccessdlg.cpp
         Headers/findsuccessdlg.h
         Forms/findsuccessdlg.ui
+        Sources/applyfriend.cpp
+        Headers/applyfriend.h
+        Forms/applyfriend.ui
+        Sources/ClickedOnceLabel.cpp
+        Headers/ClickedOnceLabel.h
+        Sources/friendlabel.cpp
+        Headers/friendlabel.h
+        Forms/friendlabel.ui
+        Sources/ContactUserList.cpp
+        Headers/ContactUserList.h
+        Sources/conuseritem.cpp
+        Headers/conuseritem.h
+        Forms/conuseritem.ui
+        Sources/grouptipitem.cpp
+        Headers/grouptipitem.h
+        Forms/grouptipitem.ui
+        Sources/applyfriendpage.cpp
+        Headers/applyfriendpage.h
+        Forms/applyfriendpage.ui
+        Sources/applyfrienditem.cpp
+        Headers/applyfrienditem.h
+        Forms/applyfrienditem.ui
+        ApplyFriendList.cpp
+        Headers/ApplyFriendList.h
 )
 target_link_libraries(Client
         Qt6::Core
@@ -125,6 +149,11 @@ if (WIN32 AND NOT DEFINED CMAKE_TOOLCHAIN_FILE)
                 COMMAND ${CMAKE_COMMAND} -E copy
                 "${QT_INSTALL_PATH}/plugins/platforms/qwindows${DEBUG_SUFFIX}.dll"
                 "$<TARGET_FILE_DIR:${PROJECT_NAME}>/plugins/platforms/")
+        add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+                COMMAND ${CMAKE_COMMAND} -E copy_directory
+                "${CMAKE_SOURCE_DIR}/static"
+                "$<TARGET_FILE_DIR:${PROJECT_NAME}>/static"
+        )
     endif ()
     foreach (QT_LIB Core Gui Widgets)
         add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD

@@ -40,6 +40,9 @@
         <file>image/right_tip.png</file>
         <file>image/loading.gif</file>
         <file>image/red_point.png</file>
+        <file>image/close_search.png</file>
+        <file>image/arowdown.png</file>
+        <file>image/新的朋友.png</file>
         <file>stylesheet.qss</file>
     </qresource>
 </RCC>

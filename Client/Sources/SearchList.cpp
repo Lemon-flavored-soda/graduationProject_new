@@ -14,6 +14,8 @@
 #include "userdata.h"
 #include "usermgr.h"
 #include <QJsonDocument>
+#include <memory>
+#include "userdata.h"
 
 SearchList::SearchList(QWidget *parent):QListWidget(parent),_find_dlg(nullptr), _search_edit(nullptr), _send_pending(false)
 {
@@ -32,10 +34,10 @@ SearchList::SearchList(QWidget *parent):QListWidget(parent),_find_dlg(nullptr), 
 
 void SearchList::CloseFindDlg()
 {
-//    if(_find_dlg){
-//        _find_dlg->hide();
-//        _find_dlg = nullptr;
-//    }
+    if(_find_dlg){
+        _find_dlg->hide();
+        _find_dlg = nullptr;
+    }
 }
 
 void SearchList::SetSearchEdit(QWidget* edit) {
@@ -100,28 +102,31 @@ void SearchList::slot_item_clicked(QListWidgetItem *item)
 
     if(itemType == ListItemType::ADD_USER_TIP_ITEM){
         //todo...
-        std::make_shared<FindSuccessDlg>(this);
+        _find_dlg = std::make_shared<FindSuccessDlg>(this);
+        auto si = std::make_shared<SearchInfo>(0,"柠檬味汽水","柠檬味汽水","hello, my friend!",1);
+        std::dynamic_pointer_cast<FindSuccessDlg>(_find_dlg)->SetSearchInfo(si);
+        _find_dlg->show();
         return;
-//        if (_send_pending) {
-//            return;
-//        }
-//
-//        if (!_search_edit) {
-//            return;
-//        }
-//        waitPending(true);
-//        auto search_edit = dynamic_cast<CustomizeEdit*>(_search_edit);
-//        auto uid_str = search_edit->text();
-//        //此处发送请求给server
-//        QJsonObject jsonObj;
-//        jsonObj["uid"] = uid_str;
-//
-//        QJsonDocument doc(jsonObj);
-//        QByteArray jsonData = doc.toJson(QJsonDocument::Compact);
-//
-//        //发送tcp请求给chat server
-//        emit TcpMgr::GetInstance()->sig_send_data(ReqId::ID_SEARCH_USER_REQ, jsonData);
-//        return;
+        if (_send_pending) {
+            return;
+        }
+
+        if (!_search_edit) {
+            return;
+        }
+        waitPending(true);
+        auto search_edit = dynamic_cast<CustomizeEdit*>(_search_edit);
+        auto uid_str = search_edit->text();
+        //此处发送请求给server
+        QJsonObject jsonObj;
+        jsonObj["uid"] = uid_str;
+
+        QJsonDocument doc(jsonObj);
+        QByteArray jsonData = doc.toJson(QJsonDocument::Compact);
+
+        //发送tcp请求给chat server
+        emit TcpMgr::GetInstance()->sig_send_data(ReqId::ID_SEARCH_USER_REQ, jsonData);
+        return;
     }
 
     //清除弹出框
@@ -154,4 +159,31 @@ void SearchList::slot_user_search(std::shared_ptr<SearchInfo> si)
 //
 //    }
 //    _find_dlg->show();
+}
+
+bool SearchList::eventFilter(QObject *watched, QEvent *event) {
+    // 检查事件是否是鼠标悬浮进入或离开
+    if (watched == this->viewport()) {
+        if (event->type() == QEvent::Enter) {
+            // 鼠标悬浮，显示滚动条
+            this->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+        } else if (event->type() == QEvent::Leave) {
+            // 鼠标离开，隐藏滚动条
+            this->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        }
+    }
+
+    // 检查事件是否是鼠标滚轮事件
+    if (watched == this->viewport() && event->type() == QEvent::Wheel) {
+        QWheelEvent *wheelEvent = static_cast<QWheelEvent*>(event);
+        int numDegrees = wheelEvent->angleDelta().y() / 8;
+        int numSteps = numDegrees / 15; // 计算滚动步数
+
+        // 设置滚动幅度
+        this->verticalScrollBar()->setValue(this->verticalScrollBar()->value() - numSteps);
+
+        return true; // 停止事件传递
+    }
+
+    return QListWidget::eventFilter(watched, event);
 }

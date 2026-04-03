@@ -2,6 +2,7 @@
 #include "Headers/login_dialog.h"
 #include "Headers/register_dialog.h"
 #include "Headers/chat_dialog.h"
+#include "applyfriend.h"
 
 int main(int argc, char *argv[]) {
     QApplication a(argc, argv);
@@ -21,6 +22,7 @@ int main(int argc, char *argv[]) {
 
 //    LoginDialog win;
     ChatDialog win;
+//    ApplyFriend win;
     win.show();
     return QApplication::exec();
 }

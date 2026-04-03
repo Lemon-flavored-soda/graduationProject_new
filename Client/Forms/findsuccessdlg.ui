@@ -34,12 +34,12 @@
        <widget class="QLabel" name="name_lb">
         <property name="minimumSize">
          <size>
-          <width>45</width>
+          <width>100</width>
           <height>45</height>
          </size>
         </property>
         <property name="text">
-         <string/>
+         <string>柠檬味汽水</string>
         </property>
        </widget>
       </item>
@@ -58,8 +58,14 @@
       </item>
       <item>
        <widget class="ClickedBtn2" name="add_friend_btn">
+        <property name="minimumSize">
+         <size>
+          <width>60</width>
+          <height>30</height>
+         </size>
+        </property>
         <property name="text">
-         <string>PushButton</string>
+         <string>添加</string>
         </property>
        </widget>
       </item>

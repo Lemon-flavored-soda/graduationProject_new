@@ -27,7 +27,7 @@ private:
     std::shared_ptr<SearchInfo>_si;
     QWidget* _parent;
 
-private slots:
+public slots:
     void on_add_friend_btn_clicked();
 };
 

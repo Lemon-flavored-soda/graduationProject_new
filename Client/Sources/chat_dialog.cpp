@@ -11,6 +11,7 @@
 #include "chatuserwid.h"
 #include "loadingdlg.h"
 #include <QMouseEvent>
+#include "global.h"
 
 
 ChatDialog::ChatDialog(QWidget *parent) :
@@ -109,29 +110,7 @@ void ChatDialog::ShowSearch(bool bsearch) {
 //    }
 
 }
-std::vector<QString>strs = {
-        "hello world!",
-        "nice to meet u",
-        "New year new life",
-        "You have to love yourself",
-        "My love is written in the wind ever since the whole world is you"
-};
-std::vector<QString>heads = {
-        ":/image/头像1.png",
-        ":/image/头像2.png",
-        ":/image/头像3.png",
-        ":/image/头像4.png",
-};
-std::vector<QString> names = {
-        "llfc",
-        "zack",
-        "golang",
-        "cpp",
-        "java",
-        "nodejs",
-        "python",
-        "rust"
-};
+
 //测试
 void ChatDialog::addChatUserList() {
     //创建QListWidgetItem，并设置自定义的widget
