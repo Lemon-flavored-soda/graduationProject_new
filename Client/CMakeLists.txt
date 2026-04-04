@@ -101,8 +101,14 @@ add_executable(Client main.cpp
         Sources/applyfrienditem.cpp
         Headers/applyfrienditem.h
         Forms/applyfrienditem.ui
-        ApplyFriendList.cpp
+        Sources/ApplyFriendList.cpp
         Headers/ApplyFriendList.h
+        Sources/findfaildlg.cpp
+        Headers/findfaildlg.h
+        Forms/findfaildlg.ui
+        Sources/authenfriend.cpp
+        Headers/authenfriend.h
+        Forms/authenfriend.ui
 )
 target_link_libraries(Client
         Qt6::Core

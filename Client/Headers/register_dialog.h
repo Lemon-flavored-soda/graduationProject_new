@@ -9,6 +9,7 @@
 #include "global.h"
 #include <QMap>
 
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class RegisterDialog; }
 QT_END_NAMESPACE
@@ -38,6 +39,7 @@ private:
     QMap<ReqId, std::function<void(const QJsonObject&)>> handlers;
     Ui::RegisterDialog *ui;
     bool flag[4];
+
 };
 
 

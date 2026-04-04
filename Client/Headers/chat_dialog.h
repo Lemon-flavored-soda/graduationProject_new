@@ -8,7 +8,8 @@
 #include <QDialog>
 #include "global.h"
 #include "StateWidget.h"
-
+#include "userdata.h"
+#include <QListWidgetItem>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class ChatDialog; }
@@ -33,11 +34,24 @@ private:
     ChatUIMode _state;
     bool b_loading;
     QList<StateWidget*> _lb_list;
+    QMap<int, QListWidgetItem*> _chat_items_added;
+    void SetSelectChatItem(int uid = 0);
+    void SetSelectChatPage(int uid = 0);
+    int _cur_chat_uid;
+    QWidget* _last_widget;
+    void loadMoreChatUser();
+    void loadMoreConUser();
+
 public slots:
     void slot_loading_chat_user();
     void slot_side_chat();
     void slot_side_contact();
     void slot_text_changed(const QString& str);
+    void slot_apply_friend(std::shared_ptr<AddFriendApply> apply);
+    void slot_add_auth_friend(std::shared_ptr<AuthInfo> auth_info);
+    void slot_auth_rsp(std::shared_ptr<AuthRsp> auth_rsp);
+    void slot_jump_chat_item(std::shared_ptr<SearchInfo> si);
+    void slot_loading_contact_user();
 };
 
 

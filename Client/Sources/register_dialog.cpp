@@ -61,6 +61,7 @@ RegisterDialog::RegisterDialog(QWidget *parent) :
 
     ui->pass_visible->setCursor(Qt::PointingHandCursor);
 
+
 }
 
 RegisterDialog::~RegisterDialog() {
@@ -237,4 +238,5 @@ void RegisterDialog::on_register_now_clicked()
     HttpMgr::GetInstance()->PostHttpReq(QUrl(gate_url_prefix+"/user_register"),
                                         json_obj, ReqId::ID_REG_USER,Modules::REGISTERMOD);
 }
+
 

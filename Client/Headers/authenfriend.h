@@ -1,9 +1,9 @@
 //
-// Created by 86157 on 2026/4/1.
+// Created by 86157 on 2026/4/4.
 //
 
-#ifndef CLIENT_APPLYFRIEND_H
-#define CLIENT_APPLYFRIEND_H
+#ifndef CLIENT_AUTHENFRIEND_H
+#define CLIENT_AUTHENFRIEND_H
 
 #include <QDialog>
 #include "ClickedLabel2.h"
@@ -11,40 +11,34 @@
 #include "userdata.h"
 
 QT_BEGIN_NAMESPACE
-namespace Ui { class ApplyFriend; }
+namespace Ui { class AuthenFriend; }
 QT_END_NAMESPACE
 
-class ApplyFriend : public QDialog {
+class AuthenFriend : public QDialog {
 Q_OBJECT
 
 public:
-    explicit ApplyFriend(QWidget *parent = nullptr);
-    ~ApplyFriend() override;
+    explicit AuthenFriend(QWidget *parent = nullptr);
+
+    ~AuthenFriend() override;
+
     void InitTipLbs();
-    //加标签
     void AddTipLbs(ClickedLabel2*, QPoint cur_point, QPoint &next_point, int text_width, int text_height);
     bool eventFilter(QObject *obj, QEvent *event);
-    //设置搜索信息，将搜索到的信息进行储存
-    void SetSearchInfo(std::shared_ptr<SearchInfo> si);
-
+    void SetApplyInfo(std::shared_ptr<ApplyInfo> apply_info);
 private:
-    Ui::ApplyFriend *ui;
-    //重置标签位置
     void resetLabels();
 
     //已经创建好的标签
     QMap<QString, ClickedLabel2*> _add_labels;
-    //用于管理创建好的标签的key
     std::vector<QString> _add_label_keys;
     QPoint _label_point;
     //用来在输入框显示添加新好友的标签
     QMap<QString, FriendLabel*> _friend_labels;
     std::vector<QString> _friend_label_keys;
-    //内部调用，根据名字来添加标签
     void addLabel(QString name);
     std::vector<QString> _tip_data;
     QPoint _tip_cur_point;
-    std::shared_ptr<SearchInfo> _si;
 public slots:
     //显示更多label标签
     void ShowMoreLabel();
@@ -64,7 +58,11 @@ public slots:
     void SlotApplySure();
     //处理取消回调
     void SlotApplyCancel();
+
+private:
+    std::shared_ptr<ApplyInfo> _apply_info;
+    Ui::AuthenFriend *ui;
 };
 
 
-#endif //CLIENT_APPLYFRIEND_H
+#endif //CLIENT_AUTHENFRIEND_H

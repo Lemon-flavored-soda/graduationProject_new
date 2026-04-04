@@ -20,8 +20,8 @@ int main(int argc, char *argv[]) {
     QString gate_port = settings.value("GateServer/port").toString();
     gate_url_prefix = "http://" + gate_host + ":" + gate_port;
 
-//    LoginDialog win;
-    ChatDialog win;
+    LoginDialog win;
+//    ChatDialog win;
 //    ApplyFriend win;
     win.show();
     return QApplication::exec();

@@ -24,3 +24,4 @@ LoadingDlg::LoadingDlg(QWidget *parent) :
 LoadingDlg::~LoadingDlg() {
     delete ui;
 }
+

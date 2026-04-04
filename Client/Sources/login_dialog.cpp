@@ -39,6 +39,15 @@ LoginDialog::LoginDialog(QWidget *parent) :
     connect(TcpMgr::GetInstance().get(), &TcpMgr::sig_con_success, this, &LoginDialog::slot_tcp_con_finish);
     //连接tcp管理者发出的登陆失败信号
     connect(TcpMgr::GetInstance().get(), &TcpMgr::sig_login_failed, this, &LoginDialog::slot_login_failed);
+    //连接创建聊天界面信号
+    connect(TcpMgr::GetInstance().get(), &TcpMgr::sig_swich_chatdlg,this,[this]{
+        QTimer *singleTimer = new QTimer(this);
+        singleTimer->setSingleShot(true); // 设置为单次触发
+        connect(singleTimer, &QTimer::timeout, this, &LoginDialog::SlotSwitchChat);
+        singleTimer->start(500);
+    });
+
+
 }
 
 LoginDialog::~LoginDialog() {
@@ -193,4 +202,12 @@ void LoginDialog::slot_login_failed(int err)
             .arg(err);
     Toast::showMessage(this, result, 3000);
     ui->btn_login->setEnabled(true);
+}
+
+void LoginDialog::SlotSwitchChat() {
+
+        _chat_dlg = new ChatDialog();
+        this->hide();
+        _chat_dlg->show();
+
 }

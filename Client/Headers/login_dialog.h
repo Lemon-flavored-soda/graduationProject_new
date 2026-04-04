@@ -7,6 +7,7 @@
 
 #include <QDialog>
 #include "register_dialog.h"
+#include "chat_dialog.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -29,6 +30,7 @@ private slots:
     void slot_login_mod_finish(ReqId id, QString res, ErrorCodes err);
     void slot_tcp_con_finish(bool bsuccess);
     void slot_login_failed(int);
+    void SlotSwitchChat();
 
 protected:
     bool eventFilter(QObject *, QEvent *) override;
@@ -42,6 +44,7 @@ private:
     QMap<ReqId, std::function<void(const QJsonObject&)>> _handlers;
     int _uid;
     QString _token;
+    ChatDialog* _chat_dlg;
 };
 
 

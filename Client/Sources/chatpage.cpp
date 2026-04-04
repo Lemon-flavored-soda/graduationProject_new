@@ -93,7 +93,7 @@ void ChatPage::on_send_btn_clicked() {
     auto pTextEdit = ui->chatEdit;
     ChatRole role = ChatRole::Self;
     QString userName = QStringLiteral("柠檬味汽水");
-    QString userIcon = ":/image/工程师.png";
+    QString userIcon = ":/image/头像3.png";
     const QVector<MsgInfo>& msgList = pTextEdit->getMsgList();
     for(int i=0; i<msgList.size(); i++){
         QString type = msgList[i].msgFlag;
