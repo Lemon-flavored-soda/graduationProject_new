@@ -6,7 +6,6 @@
 #include "message.grpc.pb.h"
 #include "message.pb.h"
 
-
 using grpc::Channel;
 using grpc::Status;
 using grpc::ClientContext;
@@ -70,7 +69,7 @@ public:
 	}
 
 private:
-	std::atomic<bool> b_stop_;
+	atomic<bool> b_stop_;
 	size_t poolSize_;
 	std::string host_;
 	std::string port_;
@@ -91,7 +90,7 @@ public:
 private:
 	StatusGrpcClient();
 	std::unique_ptr<StatusConPool> pool_;
-
+	
 };
 
 

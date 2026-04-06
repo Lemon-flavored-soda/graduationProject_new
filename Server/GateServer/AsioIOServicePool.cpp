@@ -1,14 +1,13 @@
-#include "AsioIOServicePool.h"
+ï»¿#include "AsioIOServicePool.h"
 #include <iostream>
 using namespace std;
-AsioIOServicePool::AsioIOServicePool(std::size_t size) :_ioServices(size),
-_works(size), _nextIOService(0) {
+AsioIOServicePool::AsioIOServicePool(std::size_t size):_ioServices(size),
+_works(size), _nextIOService(0){
 	for (std::size_t i = 0; i < size; ++i) {
-		//_works[i] = std::unique_ptr<Work>(new Work(_ioServices[i]));
 		_works[i] = std::unique_ptr<Work>(new Work(_ioServices[i].get_executor()));
 	}
 
-	//±éÀú¶à¸öioservice£¬´´½¨¶à¸öÏß³Ì£¬Ã¿¸öÏß³ÌÄÚ²¿Æô¶¯ioservice
+	//éå†å¤šä¸ªioserviceï¼Œåˆ›å»ºå¤šä¸ªçº¿ç¨‹ï¼Œæ¯ä¸ªçº¿ç¨‹å†…éƒ¨å¯åŠ¨ioservice
 	for (std::size_t i = 0; i < _ioServices.size(); ++i) {
 		_threads.emplace_back([this, i]() {
 			_ioServices[i].run();
@@ -29,21 +28,16 @@ boost::asio::io_context& AsioIOServicePool::GetIOService() {
 	return service;
 }
 
-void AsioIOServicePool::Stop() {
-	//ÒòÎª½ö½öÖ´ĞĞwork.reset²¢²»ÄÜÈÃiocontext´ÓrunµÄ×´Ì¬ÖĞÍË³ö
-	//µ±iocontextÒÑ¾­°ó¶¨ÁË¶Á»òĞ´µÄ¼àÌıÊÂ¼şºó£¬»¹ĞèÒªÊÖ¶¯stop¸Ã·şÎñ¡£
-
+void AsioIOServicePool::Stop(){
+	//å› ä¸ºä»…ä»…æ‰§è¡Œwork.resetå¹¶ä¸èƒ½è®©iocontextä»runçš„çŠ¶æ€ä¸­é€€å‡º
+	//å½“iocontextå·²ç»ç»‘å®šäº†è¯»æˆ–å†™çš„ç›‘å¬äº‹ä»¶åï¼Œè¿˜éœ€è¦æ‰‹åŠ¨stopè¯¥æœåŠ¡ã€‚
 	for (auto& work : _works) {
-		//°Ñ·şÎñÏÈÍ£Ö¹
+		//æŠŠæœåŠ¡å…ˆåœæ­¢
 		//work->get_io_context().stop();
 		work.reset();
 	}
-	// ±éÀú io_context ²¢Í£Ö¹ËüÃÇ
+	// éå† io_context å¹¶åœæ­¢å®ƒä»¬
 	for (auto& io_ctx : _ioServices) {
 		io_ctx.stop();
-	}
-
-	for (auto& t : _threads) {
-		t.join(); 
 	}
 }

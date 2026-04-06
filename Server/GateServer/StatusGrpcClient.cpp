@@ -3,11 +3,6 @@
 GetChatServerRsp StatusGrpcClient::GetChatServer(int uid)
 {
 	ClientContext context;
-
-	// 【关键修复】设置超时时间，例如 3 秒
-	// 防止因网络问题或服务端宕机导致线程永久挂起
-	context.set_deadline(std::chrono::system_clock::now() + std::chrono::milliseconds(5000));
-	
 	GetChatServerRsp reply;
 	GetChatServerReq request;
 	request.set_uid(uid);
@@ -16,7 +11,7 @@ GetChatServerRsp StatusGrpcClient::GetChatServer(int uid)
 	Defer defer([&stub, this]() {
 		pool_->returnConnection(std::move(stub));
 		});
-	if (status.ok()) {
+	if (status.ok()) {	
 		return reply;
 	}
 	else {
