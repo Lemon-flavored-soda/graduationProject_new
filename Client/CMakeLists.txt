@@ -7,6 +7,7 @@ set(CMAKE_PREFIX_PATH "E:/Qt/Qt6.10/6.5.3/mingw_64")
 set(CMAKE_AUTORCC ON)
 # 指定寻找UIC文件的路径
 set(CMAKE_AUTOUIC_SEARCH_PATHS "Forms")
+
 find_package(Qt6 COMPONENTS Core Gui Widgets Sql Network REQUIRED)
 qt_standard_project_setup()
 
@@ -109,6 +110,9 @@ add_executable(Client main.cpp
         Sources/authenfriend.cpp
         Headers/authenfriend.h
         Forms/authenfriend.ui
+        Sources/friendinfopage.cpp
+        Headers/friendinfopage.h
+        Forms/friendinfopage.ui
 )
 target_link_libraries(Client
         Qt6::Core
@@ -117,7 +121,13 @@ target_link_libraries(Client
         Qt6::Network
 )
 
-
+set_target_properties(Client PROPERTIES
+        #告诉链接器生成一个 Windows GUI 应用程序（图形界面程序），而不是控制台应用程序
+        #用于 Qt、wxWidgets 等开发的图形界面软件。如果你希望你的程序双击图标直接运行且没有黑框，就需要这个设置。
+        #如果设为 OFF（默认情况），生成的 .exe 会附带一个控制台窗口，即使你没有写任何 cout 或 printf
+        WIN32_EXECUTABLE ON
+        MACOSX_BUNDLE ON
+)
 
 target_include_directories(Client PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/Sources

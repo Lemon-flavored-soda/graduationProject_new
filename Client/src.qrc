@@ -43,6 +43,21 @@
         <file>image/close_search.png</file>
         <file>image/arowdown.png</file>
         <file>image/新的朋友.png</file>
+        <file>image/chat1.png</file>
+        <file>image/chat2.png</file>
+        <file>image/视频1.png</file>
+        <file>image/视频2.png</file>
+        <file>image/电话1.png</file>
+        <file>image/电话2.png</file>
+        <file>image/大学1.png</file>
+        <file>image/大学2.png</file>
+        <file>image/大学3.png</file>
+        <file>image/大学4.png</file>
+        <file>image/大学5.png</file>
+        <file>image/大学6.png</file>
+        <file>image/大学7.png</file>
+        <file>image/大学8.png</file>
+        <file>image/大学9.png</file>
         <file>stylesheet.qss</file>
     </qresource>
 </RCC>

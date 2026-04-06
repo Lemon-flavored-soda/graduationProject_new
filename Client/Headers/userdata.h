@@ -144,6 +144,7 @@ struct UserInfo {
     int _sex;
     QString _desc;
     QString _last_msg;
+    //聊天记录
     std::vector<std::shared_ptr<TextChatData>> _chat_msgs;
 };
 

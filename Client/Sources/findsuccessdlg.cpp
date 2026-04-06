@@ -19,7 +19,7 @@ FindSuccessDlg::FindSuccessDlg(QWidget *parent) :
     //获取当前应用程序的路径
     QString app_path = QCoreApplication::applicationDirPath();
     QString pix_path = QDir::toNativeSeparators(app_path
-                                                +QDir::separator()+"static"+QDir::separator()+"头像1.png");
+                                                +QDir::separator()+"static"+QDir::separator()+"大学8.png");
     QPixmap head_pix(pix_path);
     head_pix = head_pix.scaled(ui->head_lb->size(),
                                Qt::KeepAspectRatio,Qt::SmoothTransformation);

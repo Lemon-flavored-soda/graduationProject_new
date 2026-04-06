@@ -368,21 +368,21 @@ LoadingDlg{
 #apply_wid #tipslb[state='pressed'] {
     padding: 2px;
     background: #e1e1e1;
-    color: #48bf56;
+    color: #1890FF;
     border-radius: 10px;
 }
 
 #apply_wid #tipslb[state='selected_normal'] {
     padding: 2px;
     background: #e1e1e1;
-    color: #48bf56;
+    color: #1890FF;
     border-radius: 10px;
 }
 
 #apply_wid #tipslb[state='selected_hover'] {
     padding: 2px;
     background: #e1e1e1;
-    color: #48bf56;
+    color: #1890FF;
     border-radius: 10px;
 }
 
@@ -398,7 +398,7 @@ LoadingDlg{
 }
 
 #apply_wid #FriendLabel {
-    background: #daf6e7;
+    background: #98d4f3;
     color: #48bf56;
     border-radius: 10px;
 }
@@ -467,6 +467,7 @@ LoadingDlg{
     color: #1890FF;
     font-size: 16px; /* 设置字体大小 */
     font-family: "Microsoft YaHei"; /* 设置字体 */
+    border-radius: 20px; /* 设置圆角 */
     border-radius: 20px; /* 设置圆角 */
 }
 
@@ -561,24 +562,24 @@ ApplyFriendItem #user_chat_lb{
 }
 
 ApplyFriendItem #addBtn[state='normal'] {
-    background-color: #d3d7d4;
-    color: #2cb46e;
+    background-color: #1890FF;
+    color: #ffffff;
     font-size: 16px; /* 设置字体大小 */
     font-family: "Microsoft YaHei"; /* 设置字体 */
     border-radius: 20px; /* 设置圆角 */
 }
 
 ApplyFriendItem #addBtn[state='hover'] {
-    background-color: #D3D3D3;
-    color: #2cb46e;
+    background-color:  #0070E0;
+    color: #ffffff;
     font-size: 16px; /* 设置字体大小 */
     font-family: "Microsoft YaHei"; /* 设置字体 */
     border-radius: 20px; /* 设置圆角 */
 }
 
 ApplyFriendItem #addBtn[state='press'] {
-    background-color: #BEBEBE;
-    color: #2cb46e;
+    background-color: #0070E0;
+    color: #ffffff;
     font-size: 16px; /* 设置字体大小 */
     font-family: "Microsoft YaHei"; /* 设置字体 */
     border-radius: 20px; /* 设置圆角 */
@@ -591,7 +592,7 @@ ApplyFriendItem #addBtn[state='press'] {
 }
 
 #red_point {
-    border-image: url(:/image/red_point.png);
+    border-image: url(:/image/red_point.jpg);
 }
 
 #FindFailDlg{
@@ -604,7 +605,7 @@ ApplyFriendItem #addBtn[state='press'] {
 }
 
 #fail_sure_btn[state='normal']{
-    background: #07c160;
+    background: #1890FF;
     color: #ffffff;
     font-size: 14px; /* 设置字体大小 */
     font-family: "Microsoft YaHei"; /* 设置字体 */
@@ -612,7 +613,7 @@ ApplyFriendItem #addBtn[state='press'] {
 }
 
 #fail_sure_btn[state='hover']{
-    background: #3bbb4b;
+    background: #0070E0;
     color: #ffffff;
     font-size: 14px; /* 设置字体大小 */
     font-family: "Microsoft YaHei"; /* 设置字体 */
@@ -620,9 +621,61 @@ ApplyFriendItem #addBtn[state='press'] {
 }
 
 #fail_sure_btn[state='press']{
-   background: #07c160;
+   background: #0070E0;
    color: #ffffff;
    font-size: 14px; /* 设置字体大小 */
    font-family: "Microsoft YaHei"; /* 设置字体 */
    border-radius: 20px; /* 设置圆角 */
+}
+
+#friend_info_page #name_lb {
+    color: #161616;
+    font-size: 18px; /* 设置字体大小 */
+    font-family: "Microsoft YaHei"; /* 设置字体 */
+}
+
+#friend_info_page #nick_tip,
+#friend_info_page #nick_lb,
+#friend_info_page #bak_lb,
+#friend_info_page #bak_tip
+{
+    color: #161616;
+    font-size: 14px; /* 设置字体大小 */
+    font-family: "Microsoft YaHei"; /* 设置字体 */
+}
+
+#msg_chat[state='normal'] {
+ border-image: url(:/image/chat1.png);
+}
+
+#msg_chat[state='hover'] {
+ border-image: url(:/image/chat2.png);
+}
+
+#msg_chat[state='press'] {
+ border-image: url(:/image/chat2.png);
+}
+
+#video_chat[state='normal'] {
+ border-image: url(:/image/视频1.png);
+}
+
+#video_chat[state='hover'] {
+ border-image: url(:/image/视频2.png);
+}
+
+#video_chat[state='press'] {
+ border-image: url(:/image/视频2.png);
+}
+
+#voice_chat[state='normal'] {
+ border-image: url(:/image/电话1.png);
+}
+
+#voice_chat[state='hover'] {
+ border-image: url(:/image/电话2.png);
+}
+
+#voice_chat[state='press'] {
+ border-image: url(:/image/电话2.png);
 }
