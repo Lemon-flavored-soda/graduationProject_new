@@ -40,9 +40,9 @@ public:
 	void AsyncReadHead(int total_len);
 	void NotifyOffline(int uid);
 	//判断心跳是否过期
-	bool IsHeartbeatExpired(std::time_t& now);
+	//bool IsHeartbeatExpired(std::time_t& now);
 	//更新心跳
-	void UpdateHeartbeat();
+	//void UpdateHeartbeat();
 	//处理异常连接
 	void DealExceptionSession();
 private:

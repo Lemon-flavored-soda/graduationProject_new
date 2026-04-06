@@ -3,7 +3,6 @@
 #include <queue>
 #include <thread>
 #include "CSession.h"
-#include <queue>
 #include <map>
 #include <functional>
 #include "const.h"

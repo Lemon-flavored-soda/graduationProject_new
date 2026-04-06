@@ -88,14 +88,14 @@ void CServer::on_timer(const boost::system::error_code& ec) {
 
 	time_t now = std::time(nullptr);
 	for (auto iter = sessions_copy.begin(); iter != sessions_copy.end(); iter++) {
-		auto b_expired = iter->second->IsHeartbeatExpired(now);
-		if (b_expired) {
-			//关闭socket, 其实这里也会触发async_read的错误处理
-			iter->second->Close();
-			//收集过期信息
-			_expired_sessions.push_back(iter->second);
-			continue;
-		}
+		//auto b_expired = iter->second->IsHeartbeatExpired(now);
+		//if (b_expired) {
+		//	//关闭socket, 其实这里也会触发async_read的错误处理
+		//	iter->second->Close();
+		//	//收集过期信息
+		//	_expired_sessions.push_back(iter->second);
+		//	continue;
+		//}
 		session_count++;
 	}
 

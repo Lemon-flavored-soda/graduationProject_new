@@ -117,7 +117,7 @@ void CSession::AsyncReadBody(int total_len)
 			_recv_msg_node->_data[_recv_msg_node->_total_len] = '\0';
 			cout << "receive data is " << _recv_msg_node->_data << endl;
 			//更新session心跳时间
-			UpdateHeartbeat();
+			//UpdateHeartbeat();
 			//此处将消息投递到逻辑队列中
 			LogicSystem::GetInstance()->PostMsgToQue(make_shared<LogicNode>(shared_from_this(), _recv_msg_node));
 			//继续监听头部接受事件
@@ -268,21 +268,21 @@ LogicNode::LogicNode(shared_ptr<CSession>  session,
 }
 
 
-bool CSession::IsHeartbeatExpired(std::time_t& now) {
-	double diff_sec = std::difftime(now, _last_heartbeat);
-	if (diff_sec > 20) {
-		std::cout << "heartbeat expired, session id is  " << _session_id << endl;
-		return true;
-	}
+//bool CSession::IsHeartbeatExpired(std::time_t& now) {
+//	double diff_sec = std::difftime(now, _last_heartbeat);
+//	if (diff_sec > 20) {
+//		std::cout << "heartbeat expired, session id is  " << _session_id << endl;
+//		return true;
+//	}
+//
+//	return false;
+//}
 
-	return false;
-}
-
-void CSession::UpdateHeartbeat()
-{
-	time_t now = std::time(nullptr);
-	_last_heartbeat = now;
-}
+//void CSession::UpdateHeartbeat()
+//{
+//	time_t now = std::time(nullptr);
+//	_last_heartbeat = now;
+//}
 
 void CSession::DealExceptionSession()
 {
